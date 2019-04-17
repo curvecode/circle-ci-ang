@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Trâm Anh! 15 phụt nha';
+  title = 'This is new test from comp';
 }
