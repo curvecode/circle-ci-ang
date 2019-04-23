@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/curvecode/circle-ci-ang.svg?style=svg)](https://circleci.com/gh/curvecode/circle-ci-ang)
+
 # CircleCiAng
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
