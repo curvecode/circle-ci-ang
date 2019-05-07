@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Terminal } from 'xterm';
-import * as fit from 'xterm/lib/addons/fit/fit';
 
 @Component({
   selector: 'app-root',
