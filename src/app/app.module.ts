@@ -12,6 +12,8 @@ import { AboutComponent } from './page/about/about.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
+import { CardComponent } from './page/component/card/card.component';
+import { CardService } from './common/service/cardService';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
     AboutComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
