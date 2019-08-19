@@ -14,6 +14,8 @@ import { FooterComponent } from './common/footer/footer.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { CardComponent } from './page/component/card/card.component';
 import { CardService } from './common/service/cardService';
+import { DrapDropDirective } from './common/directive/drap-drop.directive';
+import { UploadComponent } from './common/component/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { CardService } from './common/service/cardService';
     FooterComponent,
     SidebarComponent,
     CardComponent,
+    DrapDropDirective,
+    UploadComponent,
   ],
   imports: [
     BrowserModule,
