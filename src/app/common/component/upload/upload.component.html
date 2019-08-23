@@ -1,11 +1,11 @@
 <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
-  <input hidden #fileInput type="file" (change)="uploadFile($event.target.files)">
+  <input hidden #fileInput type="file" accept="image/*" (change)="uploadFile($event.target.files)">
 </div>
 <div class="files-list" *ngFor="let file of files;let i = index">
   <p *ngIf="file"> {{ file.name }} </p>
   <button (click)="deleteAttachment(i)">X</button>
   <p>Image preview</p>
   <div *ngIf="file">
-    <img [src]="file.url" alt="{{ file.name }}" style="max-width: 100px">
+    <img [src]="file.url" alt="{{ file.name }}" style="max-width: 50%">
   </div>
 </div>
