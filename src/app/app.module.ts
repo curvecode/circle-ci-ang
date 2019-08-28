@@ -16,6 +16,8 @@ import { CardComponent } from './page/component/card/card.component';
 import { CardService } from './common/service/cardService';
 import { DrapDropDirective } from './common/directive/drap-drop.directive';
 import { UploadComponent } from './common/component/upload/upload.component';
+import { UserService } from './common/service/userService';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,21 +25,22 @@ import { UploadComponent } from './common/component/upload/upload.component';
     LoginComponent,
     HomeComponent,
     BlogComponent,
-    AboutComponent,
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
     CardComponent,
     DrapDropDirective,
     UploadComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [CardService],
+  providers: [CardService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

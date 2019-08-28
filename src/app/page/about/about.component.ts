@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../common/service/userService';
 
 @Component({
   selector: 'app-about',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-
-  constructor() { }
+  results = [];
+  info: any;
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.fetchUserList();
+  }
+
+  fetchUserList() {
+    this.userService.fetchUserList().then((result) => {
+      console.log(result);
+      if (result) {
+        this.info = result.info;
+        this.results = result.results;
+      }
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
 }
