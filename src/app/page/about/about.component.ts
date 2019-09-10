@@ -16,7 +16,7 @@ export class AboutComponent implements OnInit {
   }
 
   fetchUserList() {
-    this.userService.fetchUserList().then((result) => {
+    this.userService.fetchUserList(500).then((result) => {
       console.log(result);
       if (result) {
         this.info = result.info;

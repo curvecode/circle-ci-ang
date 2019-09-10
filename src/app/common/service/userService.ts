@@ -6,7 +6,7 @@ export class UserService {
     constructor(private httpClient: HttpClient) {
 
     }
-    fetchUserList(): Promise<any> {
-        return this.httpClient.get('https://randomuser.me/api/?results=500').toPromise();
+    fetchUserList(numberOfUser: number): Promise<any> {
+        return this.httpClient.get('https://randomuser.me/api/?results=' + numberOfUser).toPromise();
     }
 }
