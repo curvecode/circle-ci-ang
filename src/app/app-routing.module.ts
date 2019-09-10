@@ -29,7 +29,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     useHash: false, // Enable or disable hash tag on URL
-    enableTracing: true // Toggles whether the router should log all navigation events to the console
+    enableTracing: false // Toggles whether the router should log all navigation events to the console
   })],
   exports: [RouterModule]
 })
