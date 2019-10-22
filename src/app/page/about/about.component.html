@@ -1,42 +1,50 @@
-
 <div class="container">
-  <div class="content-page">
-    This is about page
-  </div>
   <p *ngIf="!results.length">Loading...</p>
-  <!-- <div *ngIf="results && results.length">
-    <ul>
-      <li *ngFor="let rs of results">
-        {{rs.email}} |
-        <img src="{{rs.picture.thumbnail}}" alt="{{rs.picture.thumbnail}}"> |
-        {{rs.name.first}} {{rs.name.last}} |
-        {{rs.gender}}
-      </li>
-    </ul>
-  </div> -->
-  <div>
-    <p class="alert alert-primary">Filter by gender: <span class="badge badge-light">Male</span>, <span class="badge badge-light">Female</span></p>
-    <p class="alert alert-secondary">Filter by first name: <input class="form-control" type="text" name="name" id="name" placeholder="Enter first name"></p>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="alert alert-primary">Filter by gender: <span class="badge badge-light">Male</span>, <span
+          class="badge badge-light">Female</span></p>
+      <p class="alert alert-secondary">Filter by first name: <input class="form-control" type="text" name="name"
+          id="name" placeholder="Enter first name"></p>
+    </div>
   </div>
-  <table class="table" *ngIf="results && results.length">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Gender</th>
-        <th scope="col">Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let rs of results">
-        <th scope="row"><img src="{{rs.picture.thumbnail}}" alt="{{rs.picture.thumbnail}}"></th>
-        <td>{{rs.name.first}}</td>
-        <td>{{rs.name.last}}</td>
-        <td>{{rs.gender}}</td>
-        <td>{{rs.email}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-data-content">
+        <table class="table table-responsive" *ngIf="results && results.length">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rs of results">
+              <th scope="row"><img src="{{rs.picture.thumbnail}}" alt="{{rs.picture.thumbnail}}"></th>
+              <td>{{rs.name.first}}</td>
+              <td>{{rs.name.last}}</td>
+              <td>{{rs.gender}}</td>
+              <td>{{rs.email}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
+  </div>
+
+  <div class="row">
+    <!-- JQuery and Bootstrap example -->
+    <div class="col-md-12">
+      <p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Launch demo modal
+        </button>
+      </p>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './page/login/login.component';
 import { HomeComponent } from './page/home/home.component';
 import { BlogComponent } from './page/blog/blog.component';
-import { AboutComponent } from './page/about/about.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
@@ -16,9 +15,9 @@ import { CardComponent } from './page/component/card/card.component';
 import { CardService } from './common/service/cardService';
 import { DrapDropDirective } from './common/directive/drap-drop.directive';
 import { UploadComponent } from './common/component/upload/upload.component';
-import { UserService } from './common/service/userService';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutModule } from './page/about/about.module';
+import { ConfirmComponent } from './page/dialog/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +31,7 @@ import { AboutModule } from './page/about/about.module';
     CardComponent,
     DrapDropDirective,
     UploadComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +41,7 @@ import { AboutModule } from './page/about/about.module';
     HttpClientModule,
     AboutModule
   ],
-  providers: [CardService, UserService],
+  providers: [CardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

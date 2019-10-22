@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../common/service/userService';
 
+declare let $: any;
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -9,7 +11,11 @@ import { UserService } from '../../common/service/userService';
 export class AboutComponent implements OnInit {
   results = [];
   info: any;
-  constructor(private userService: UserService) { }
+  private jquery: any;
+
+  constructor(private userService: UserService) {
+    this.jquery = $;
+  }
 
   ngOnInit() {
     this.fetchUserList();
@@ -25,6 +31,10 @@ export class AboutComponent implements OnInit {
     }).catch((error) => {
       console.log(error);
     });
+  }
+
+  openModal() {
+    console.log(this.jquery)
   }
 
 }
