@@ -32,12 +32,14 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      # - run:
-      #     name: 'Test Project'
-      #     command: 'npm run test'
+      - run:
+          name: 'Run unit test'
+          command: 'npm run test'
+
       - run:
           name: 'Build Project'
           command: 'npm run build:prod'
+
       - run:
           name: 'Deploy to Firebase hosting'
           command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN'
