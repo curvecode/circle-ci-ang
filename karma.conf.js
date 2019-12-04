@@ -9,6 +9,7 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
+      require('karma-phantomjs-launcher'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
@@ -25,7 +26,8 @@ module.exports = function (config) {
       'text/x-typescript': ['ts','tsx']
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, 'coverage'), reports: [ 'html', 'lcovonly' ],
+      dir: require('path').join(__dirname, 'coverage'), 
+      reports: [ 'html', 'json-summary', 'text-summary', 'text' ],
       fixWebpackSourcePaths: true
     },
     
@@ -35,8 +37,8 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
+    autoWatch: false,
+    browsers: ['PhantomJS'],
+    singleRun: true
   });
 };

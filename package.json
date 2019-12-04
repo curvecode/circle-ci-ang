@@ -8,7 +8,7 @@
     "start:local": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "build:prod": "ng build --prod",
-    "test": "ng test",
+    "test": "ng test --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -50,6 +50,9 @@
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.16",
     "protractor": "^6.0.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
