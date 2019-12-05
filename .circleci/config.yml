@@ -18,6 +18,21 @@ jobs:
 
     steps:
       - checkout
+# GIT UPGRADE CHROME TO LATEST VERSION AFTER CLEANING PACKAGE REPO
+      - run:
+          name: Setup CI Environment
+          command: |
+            sudo killall apt apt-get || true
+            sudo apt-get update
+            sudo apt-get clean
+            sudo mv /var/lib/apt/lists /tmp
+            sudo mkdir -p /var/lib/apt/lists/partial
+            sudo apt-get clean
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+            echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+            sudo apt-get update            
+            sudo apt-get install google-chrome-stable
+            google-chrome --version
 
       # Download and cache dependencies
       - restore_cache:
