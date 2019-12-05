@@ -24,6 +24,7 @@ jobs:
           command: |
             sudo killall apt apt-get || true
             sudo apt-get update
+            sudo apt-get install libgconf2-4 libnss3-1d libxss1
             sudo apt-get clean
             sudo mv /var/lib/apt/lists /tmp
             sudo mkdir -p /var/lib/apt/lists/partial
