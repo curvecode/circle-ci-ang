@@ -23,17 +23,10 @@ jobs:
           name: Setup CI Environment
           command: |
             sudo apt-get update
-            sudo apt-get install libgconf2-4 libnss3-1d libxss1
-            sudo apt-get clean
-            sudo mv /var/lib/apt/lists /tmp
-            sudo mkdir -p /var/lib/apt/lists/partial
             sudo apt-get clean
             wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
             echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-            sudo apt-get update
-            sudo apt-get install dpkg
-            sudo wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_75.0.3770.142-1_amd64.deb
-            sudo dpkg -i google-chrome-stable_75.0.3770.142-1_amd64.deb
+            sudo apt-get install google-chrome-stable
             google-chrome --version
 
       # Download and cache dependencies
