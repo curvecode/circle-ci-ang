@@ -22,7 +22,6 @@ jobs:
       - run:
           name: Setup CI Environment
           command: |
-            sudo killall apt apt-get || true
             sudo apt-get update
             sudo apt-get install libgconf2-4 libnss3-1d libxss1
             sudo apt-get clean
