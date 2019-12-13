@@ -19,23 +19,42 @@ jobs:
     steps:
       - checkout
 # GIT UPGRADE CHROME TO LATEST VERSION AFTER CLEANING PACKAGE REPO
-      - run:
-          name: Setup CI Environment
+      - run: #STABLE
+          name: Install Chromedriver latest version
           command: |
             sudo apt-get update
-            sudo apt-get install libgconf2-4 libnss3-1d libxss1
-            sudo apt-get clean
-            sudo mv /var/lib/apt/lists /tmp
-            sudo mkdir -p /var/lib/apt/lists/partial
-            sudo apt-get clean
-            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+            sudo apt-get install lsb-release libappindicator3-1
+            curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo dpkg -i google-chrome.deb
+            sudo sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome/google-chrome
+            rm google-chrome.deb
+      - run: #BETA
+          name: Install Chromedriver latest version
+          command: |
             sudo apt-get update
-            sudo apt-get install dpkg
-            sudo apt-get install gconf-service
-            # Install Chrome
-            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
-            google-chrome --version
+            sudo apt-get install lsb-release libappindicator3-1
+            curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
+            sudo dpkg -i google-chrome.deb
+            sudo sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome-beta/google-chrome-beta
+            rm google-chrome.deb
+      # - run:
+      #     name: Setup CI Environment
+      #     command: |
+      #       sudo apt-get update
+      #       sudo apt-get install libgconf2-4 libnss3-1d libxss1
+      #       sudo apt-get clean
+      #       sudo mv /var/lib/apt/lists /tmp
+      #       sudo mkdir -p /var/lib/apt/lists/partial
+      #       sudo apt-get clean
+      #       wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+      #       sudo apt-get update
+      #       sudo apt-get install dpkg
+      #       sudo apt-get install gconf-service
+      #       # Install Chrome
+      #       wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      #       sudo dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
+      #       rm google-chrome.deb
+      #       google-chrome --version
 
       # Download and cache dependencies
       - restore_cache:
