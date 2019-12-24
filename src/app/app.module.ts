@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -15,9 +16,10 @@ import { CardComponent } from './page/component/card/card.component';
 import { CardService } from './common/service/cardService';
 import { DrapDropDirective } from './common/directive/drap-drop.directive';
 import { UploadComponent } from './common/component/upload/upload.component';
-import { HttpClientModule } from '@angular/common/http';
 import { AboutModule } from './page/about/about.module';
 import { ConfirmComponent } from './page/dialog/confirm/confirm.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { ConfirmComponent } from './page/dialog/confirm/confirm.component';
     HttpModule,
     AppRoutingModule,
     HttpClientModule,
-    AboutModule
+    AboutModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [CardService],
   bootstrap: [AppComponent]
