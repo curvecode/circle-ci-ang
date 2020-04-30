@@ -29,7 +29,7 @@
     "@schematics/angular": "^7.3.9",
     "bootstrap": "^4.4.1",
     "core-js": "^2.6.11",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper": "^1.0.1",
     "rxjs": "^6.5.3",
     "rxjs-compat": "^6.5.3",
